@@ -64,6 +64,7 @@ function ready(){
     for(var i=0;i<removeCartButtons.length;i++){
         var button =removeCartButtons[i]
         button.addEventListener('click',removeCartItem)
+        
     }
 
 
@@ -75,6 +76,7 @@ function ready(){
         let buttonClicked=e.target;
         console.log("clicked")
         buttonClicked.parentElement.remove();
+        alert("1 item removed")
         updatetotal();
     }
 
@@ -120,8 +122,9 @@ function ready(){
 let addToCart=document.getElementsByClassName('fa-shopping-cart')
 var icon=document.getElementsByClassName('icon');
 
+
 console.log(addToCart);
-for(var i=0;i<addToCart.length;i++){
+for(var i=0;i<addToCart.length;i++){    
     let button=addToCart[i];
     button.addEventListener('click',(e)=>{
         button=e.target;
@@ -191,9 +194,15 @@ let buyButton=document.getElementsByClassName("btn")[0].addEventListener("click"
 for(var i=0;i<addToCart.length;i++){
     let button=addToCart[i];
     let count=0;
-    button.addEventListener('click',()=>{
+    button.addEventListener('click',()=>{       
 		count+=1;  
+        if(count>=1){
+            alert("the item is already in the cart")
+            document.getElementById("icon").style.visibility="hidden";
+            
+        }
         document.getElementById("icon1").innerHTML=count;
+        
     console.log(count);
     })}
 
